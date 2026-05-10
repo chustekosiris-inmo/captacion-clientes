@@ -301,15 +301,15 @@
       btn.innerHTML = '<span class="spinner"></span>Enviando…';
       aviso.style.display = "none";
 
-      // Recolectamos los datos del formulario
-      var datos = new FormData(form);
-
-      // fetch() envía los datos a Google Sheets en segundo plano (sin recargar la página)
-      // "no-cors" es necesario porque Google Apps Script no devuelve cabeceras CORS
       fetch(URL_SHEETS, {
         method: "POST",
-        body: datos,
-        mode: "no-cors"
+        body: JSON.stringify({
+          nombre:   form.nombre.value,
+          email:    form.email.value,
+          telefono: form.telefono.value,
+          empresa:  form.empresa.value,
+          mensaje:  form.mensaje.value
+        })
       })
       .then(function () {
         // Con "no-cors" siempre llega aquí aunque haya error en el servidor,
