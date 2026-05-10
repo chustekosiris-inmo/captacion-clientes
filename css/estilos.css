@@ -1,0 +1,191 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f4f8;
+  color: #333;
+}
+
+header {
+  background-color: #2563eb;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 12px;
+  font-size: 15px;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+}
+
+nav a:hover {
+  border-bottom-color: white;
+}
+
+main {
+  max-width: 680px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+/* --- Formulario --- */
+.tarjeta {
+  background: white;
+  border-radius: 10px;
+  padding: 32px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.tarjeta h2 {
+  margin-bottom: 24px;
+  font-size: 20px;
+  color: #1e40af;
+}
+
+.campo {
+  margin-bottom: 18px;
+}
+
+.campo label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.campo input,
+.campo textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: border-color 0.2s;
+}
+
+.campo input:focus,
+.campo textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.campo textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+button[type="submit"] {
+  width: 100%;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button[type="submit"]:hover {
+  background-color: #1d4ed8;
+}
+
+.mensaje-exito {
+  display: none;
+  margin-top: 16px;
+  background-color: #d1fae5;
+  color: #065f46;
+  padding: 12px;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* --- Lista de clientes --- */
+.barra-superior {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.barra-superior h2 {
+  font-size: 20px;
+  color: #1e40af;
+}
+
+.btn-limpiar {
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-limpiar:hover {
+  background-color: #dc2626;
+}
+
+.sin-clientes {
+  text-align: center;
+  color: #94a3b8;
+  padding: 40px 0;
+  font-size: 16px;
+}
+
+.cliente-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border-left: 4px solid #2563eb;
+}
+
+.cliente-card .nombre {
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.cliente-card .detalle {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+.cliente-card .fecha {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-top: 8px;
+}
+
+.cliente-card .mensaje-texto {
+  margin-top: 10px;
+  background: #f8fafc;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #444;
+}

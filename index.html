@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto</title>
+  <style>
+    /* ── Reset y base ───────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --oro:       #c9a84c;
+      --oro-claro: #e2c47a;
+      --fondo:     #0d0d0d;
+      --superficie:#1a1a1a;
+      --borde:     #2e2e2e;
+      --texto:     #e8e8e8;
+      --gris:      #888;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background-color: var(--fondo);
+      color: var(--texto);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 16px;
+    }
+
+    /* ── Contenedor principal ───────────────────────────────── */
+    .card {
+      width: 100%;
+      max-width: 560px;
+      background: var(--superficie);
+      border: 1px solid var(--borde);
+      border-radius: 16px;
+      padding: 48px 40px;
+      box-shadow: 0 0 60px rgba(201, 168, 76, 0.07);
+      animation: aparecer 0.5s ease both;
+    }
+
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Encabezado ─────────────────────────────────────────── */
+    .encabezado {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .linea-dorada {
+      width: 48px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--oro), var(--oro-claro));
+      border-radius: 2px;
+      margin: 0 auto 24px;
+    }
+
+    .encabezado h1 {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #fff;
+    }
+
+    .encabezado p {
+      margin-top: 10px;
+      font-size: 14px;
+      color: var(--gris);
+      line-height: 1.6;
+    }
+
+    /* ── Campos del formulario ──────────────────────────────── */
+    .campo {
+      position: relative;
+      margin-bottom: 22px;
+    }
+
+    .campo label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--gris);
+      margin-bottom: 8px;
+      transition: color 0.2s;
+    }
+
+    /* Cuando el campo tiene foco, la etiqueta se vuelve dorada */
+    .campo:focus-within label {
+      color: var(--oro);
+    }
+
+    .campo input,
+    .campo textarea {
+      width: 100%;
+      background: #111;
+      border: 1px solid var(--borde);
+      border-radius: 8px;
+      padding: 13px 16px;
+      font-size: 15px;
+      color: var(--texto);
+      outline: none;
+      transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
+      -webkit-appearance: none;
+    }
+
+    .campo input::placeholder,
+    .campo textarea::placeholder {
+      color: #444;
+    }
+
+    /* Hover: borde levemente visible */
+    .campo input:hover,
+    .campo textarea:hover {
+      border-color: #444;
+    }
+
+    /* Foco: borde dorado + resplandor suave */
+    .campo input:focus,
+    .campo textarea:focus {
+      border-color: var(--oro);
+      box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.12);
+      background: #151515;
+    }
+
+    .campo textarea {
+      height: 120px;
+      resize: vertical;
+      line-height: 1.5;
+    }
+
+    /* ── Fila de dos columnas (email + teléfono) ────────────── */
+    .fila-doble {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    /* ── Botón de envío ─────────────────────────────────────── */
+    .btn-enviar {
+      width: 100%;
+      padding: 15px;
+      margin-top: 8px;
+      background: linear-gradient(135deg, var(--oro), var(--oro-claro));
+      color: #0d0d0d;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-enviar:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(201, 168, 76, 0.3);
+    }
+
+    .btn-enviar:active:not(:disabled) {
+      transform: translateY(0);
+    }
+
+    .btn-enviar:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    /* Spinner dentro del botón */
+    .spinner {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(0,0,0,0.3);
+      border-top-color: #000;
+      border-radius: 50%;
+      animation: girar 0.7s linear infinite;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    @keyframes girar {
+      to { transform: rotate(360deg); }
+    }
+
+    /* ── Mensaje de éxito ───────────────────────────────────── */
+    .aviso {
+      display: none;
+      margin-top: 20px;
+      padding: 14px 18px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+      animation: aparecer 0.3s ease both;
+    }
+
+    .aviso.exito {
+      background: rgba(40, 167, 90, 0.12);
+      border: 1px solid rgba(40, 167, 90, 0.35);
+      color: #4caf76;
+    }
+
+    .aviso.error {
+      background: rgba(220, 53, 69, 0.12);
+      border: 1px solid rgba(220, 53, 69, 0.35);
+      color: #e57373;
+    }
+
+    /* ── Pie ────────────────────────────────────────────────── */
+    footer {
+      margin-top: 28px;
+      font-size: 12px;
+      color: #3a3a3a;
+      text-align: center;
+    }
+
+    /* ── Responsive: en pantallas muy chicas, una columna ───── */
+    @media (max-width: 480px) {
+      .card { padding: 36px 24px; }
+      .fila-doble { grid-template-columns: 1fr; gap: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="encabezado">
+      <div class="linea-dorada"></div>
+      <h1>Hablemos</h1>
+      <p>Completá el formulario y nos ponemos en contacto a la brevedad.</p>
+    </div>
+
+    <form id="form">
+
+      <div class="campo">
+        <label for="nombre">Nombre completo</label>
+        <input type="text" id="nombre" name="nombre"
+               placeholder="María González" required />
+      </div>
+
+      <div class="fila-doble">
+        <div class="campo">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email"
+                 placeholder="maria@email.com" required />
+        </div>
+        <div class="campo">
+          <label for="telefono">Teléfono</label>
+          <input type="tel" id="telefono" name="telefono"
+                 placeholder="+54 11 1234-5678" />
+        </div>
+      </div>
+
+      <div class="campo">
+        <label for="empresa">Empresa</label>
+        <input type="text" id="empresa" name="empresa"
+               placeholder="Nombre de tu empresa (opcional)" />
+      </div>
+
+      <div class="campo">
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje"
+                  placeholder="Contanos en qué podemos ayudarte…" required></textarea>
+      </div>
+
+      <button type="submit" class="btn-enviar" id="btn">
+        Enviar mensaje
+      </button>
+
+      <div id="aviso" class="aviso"></div>
+    </form>
+  </div>
+
+  <footer>Todos los datos se tratan con confidencialidad.</footer>
+
+  <script>
+    // URL del Web App de Google Apps Script que recibe los datos
+    var URL_SHEETS = "https://script.google.com/macros/s/AKfycbyr43PPKhkjXRKlXnjaLMYVQk83Sd55M0M-xWU3msfWIt6iXRnXnRPkHTay1jpYqUCi/exec";
+
+    var form  = document.getElementById("form");
+    var btn   = document.getElementById("btn");
+    var aviso = document.getElementById("aviso");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault(); // Impedimos que la página se recargue
+
+      // Mostramos el spinner y desactivamos el botón mientras se envía
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner"></span>Enviando…';
+      aviso.style.display = "none";
+
+      // Recolectamos los datos del formulario
+      var datos = new FormData(form);
+
+      // fetch() envía los datos a Google Sheets en segundo plano (sin recargar la página)
+      // "no-cors" es necesario porque Google Apps Script no devuelve cabeceras CORS
+      fetch(URL_SHEETS, {
+        method: "POST",
+        body: datos,
+        mode: "no-cors"
+      })
+      .then(function () {
+        // Con "no-cors" siempre llega aquí aunque haya error en el servidor,
+        // así que mostramos éxito si la petición salió sin error de red.
+        mostrarAviso("exito", "¡Mensaje enviado! Nos ponemos en contacto pronto.");
+        form.reset();
+      })
+      .catch(function () {
+        // Solo entra aquí si hay un problema de conexión (sin internet, etc.)
+        mostrarAviso("error", "Hubo un problema de conexión. Intentá de nuevo.");
+      })
+      .finally(function () {
+        btn.disabled = false;
+        btn.innerHTML = "Enviar mensaje";
+      });
+    });
+
+    function mostrarAviso(tipo, texto) {
+      aviso.className = "aviso " + tipo;
+      aviso.textContent = texto;
+      aviso.style.display = "block";
+
+      // Ocultamos el aviso después de 6 segundos
+      setTimeout(function () {
+        aviso.style.display = "none";
+      }, 6000);
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clientes Registrados</title>
+  <link rel="stylesheet" href="css/estilos.css" />
+</head>
+<body>
+
+  <header>
+    <h1>Sistema de Captación de Clientes</h1>
+    <nav>
+      <a href="index.html">Registrar cliente</a>
+      <a href="clientes.html">Ver clientes</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="tarjeta">
+
+      <div class="barra-superior">
+        <h2>Clientes registrados</h2>
+        <button id="btn-limpiar" class="btn-limpiar">Borrar todos</button>
+      </div>
+
+      <!-- Aquí el JavaScript va a insertar las tarjetas de cada cliente -->
+      <div id="lista-clientes"></div>
+
+    </div>
+  </main>
+
+  <script src="js/clientes.js"></script>
+
+</body>
+</html>
