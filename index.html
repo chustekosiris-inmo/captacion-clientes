@@ -1,343 +1,812 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contacto</title>
-  <style>
-    /* ── Reset y base ───────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>LEAD'S Inmobiliaria — Asesor Osiris Chustek</title>
+<style>
+/* ── Reset ─────────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --oro:#c9a84c;
+  --oro2:#e2c47a;
+  --negro:#0a0a0a;
+  --sup:#141414;
+  --sup2:#1e1e1e;
+  --borde:#2c2c2c;
+  --texto:#e8e8e8;
+  --gris:#888;
+  --gris2:#555;
+}
 
-    :root {
-      --oro:       #c9a84c;
-      --oro-claro: #e2c47a;
-      --fondo:     #0d0d0d;
-      --superficie:#1a1a1a;
-      --borde:     #2e2e2e;
-      --texto:     #e8e8e8;
-      --gris:      #888;
-    }
+html{scroll-behavior:smooth}
 
-    html { scroll-behavior: smooth; }
+body{
+  font-family:'Segoe UI',system-ui,sans-serif;
+  min-height:100vh;
+  background-color:var(--negro);
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(201,168,76,.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(201,168,76,.04) 0%, transparent 50%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1440' height='900' viewBox='0 0 1440 900'%3E%3Cpath fill='none' stroke='%23222' stroke-width='1.5' d='M0 400 Q360 300 720 420 Q1080 540 1440 400'/%3E%3Cpath fill='none' stroke='%231a1a1a' stroke-width='1' d='M0 500 Q360 380 720 520 Q1080 640 1440 490'/%3E%3Cpath fill='none' stroke='%231e1e1e' stroke-width='1' d='M0 600 Q360 480 720 600 Q1080 720 1440 570'/%3E%3C/svg%3E");
+  background-size:cover;
+  background-attachment:fixed;
+  color:var(--texto);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:32px 16px 56px;
+}
 
-    body {
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      background-color: var(--fondo);
-      color: var(--texto);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 32px 16px;
-    }
+/* ── Header ────────────────────────────────────────────────── */
+header{
+  text-align:center;
+  margin-bottom:36px;
+  animation:subir .6s ease both;
+}
+.logo-leads{
+  max-width:200px;
+  height:auto;
+  display:block;
+  margin:0 auto 16px;
+  filter:drop-shadow(0 2px 12px rgba(201,168,76,.25));
+}
+.asesor{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+}
+.logo-osiris{
+  max-width:150px;
+  height:auto;
+  display:block;
+  filter:drop-shadow(0 1px 6px rgba(201,168,76,.2));
+}
+.asesor-texto{
+  font-size:13px;
+  letter-spacing:1.2px;
+  text-transform:uppercase;
+  color:var(--oro);
+  font-weight:600;
+}
+.divisor{
+  width:60px;
+  height:2px;
+  background:linear-gradient(90deg,transparent,var(--oro),transparent);
+  margin:18px auto 0;
+}
 
-    /* ── Contenedor principal ───────────────────────────────── */
-    .card {
-      width: 100%;
-      max-width: 560px;
-      background: var(--superficie);
-      border: 1px solid var(--borde);
-      border-radius: 16px;
-      padding: 48px 40px;
-      box-shadow: 0 0 60px rgba(201, 168, 76, 0.07);
-      animation: aparecer 0.5s ease both;
-    }
+/* ── Card wizard ───────────────────────────────────────────── */
+.wizard{
+  width:100%;
+  max-width:620px;
+  background:var(--sup);
+  border:1px solid var(--borde);
+  border-radius:18px;
+  padding:40px 36px 36px;
+  box-shadow:0 0 80px rgba(201,168,76,.06);
+  animation:subir .7s .1s ease both;
+}
 
-    @keyframes aparecer {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+@keyframes subir{
+  from{opacity:0;transform:translateY(28px)}
+  to{opacity:1;transform:translateY(0)}
+}
 
-    /* ── Encabezado ─────────────────────────────────────────── */
-    .encabezado {
-      text-align: center;
-      margin-bottom: 40px;
-    }
+/* ── Barra de progreso ─────────────────────────────────────── */
+.progreso-wrap{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:0;
+  margin-bottom:36px;
+}
+.paso-dot{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  position:relative;
+}
+.dot{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  border:2px solid var(--borde);
+  background:var(--sup2);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:13px;
+  font-weight:700;
+  color:var(--gris2);
+  transition:all .3s;
+}
+.paso-dot.activo .dot{
+  border-color:var(--oro);
+  background:var(--oro);
+  color:#000;
+  box-shadow:0 0 14px rgba(201,168,76,.4);
+}
+.paso-dot.completo .dot{
+  border-color:var(--oro);
+  background:transparent;
+  color:var(--oro);
+}
+.paso-dot.completo .dot::after{
+  content:'✓';
+  font-size:14px;
+}
+.paso-dot.completo .dot span{display:none}
+.paso-label{
+  font-size:10px;
+  letter-spacing:.7px;
+  text-transform:uppercase;
+  color:var(--gris2);
+  transition:color .3s;
+  white-space:nowrap;
+}
+.paso-dot.activo .paso-label{color:var(--oro)}
+.linea-prog{
+  width:60px;
+  height:2px;
+  background:var(--borde);
+  margin:0 4px;
+  margin-bottom:22px;
+  transition:background .4s;
+  flex-shrink:0;
+}
+.linea-prog.llena{background:var(--oro)}
 
-    .linea-dorada {
-      width: 48px;
-      height: 3px;
-      background: linear-gradient(90deg, var(--oro), var(--oro-claro));
-      border-radius: 2px;
-      margin: 0 auto 24px;
-    }
+/* ── Títulos de paso ───────────────────────────────────────── */
+.paso-titulo{
+  font-size:19px;
+  font-weight:700;
+  color:#fff;
+  margin-bottom:6px;
+}
+.paso-subtitulo{
+  font-size:13px;
+  color:var(--gris);
+  margin-bottom:28px;
+}
 
-    .encabezado h1 {
-      font-size: 26px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      color: #fff;
-    }
+/* ── Pasos (contenido) ─────────────────────────────────────── */
+.paso{display:none}
+.paso.visible{display:block;animation:fadeIn .35s ease both}
+@keyframes fadeIn{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:translateX(0)}}
 
-    .encabezado p {
-      margin-top: 10px;
-      font-size: 14px;
-      color: var(--gris);
-      line-height: 1.6;
-    }
+/* ── Campo de texto ────────────────────────────────────────── */
+.campo{margin-bottom:20px}
+.campo label{
+  display:block;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.9px;
+  text-transform:uppercase;
+  color:var(--gris);
+  margin-bottom:8px;
+  transition:color .2s;
+}
+.campo:focus-within label{color:var(--oro)}
+.campo input,.campo textarea{
+  width:100%;
+  background:#0f0f0f;
+  border:1px solid var(--borde);
+  border-radius:8px;
+  padding:13px 15px;
+  font-size:15px;
+  color:var(--texto);
+  outline:none;
+  transition:border-color .25s,box-shadow .25s;
+  -webkit-appearance:none;
+}
+.campo input::placeholder,.campo textarea::placeholder{color:#3a3a3a}
+.campo input:hover,.campo textarea:hover{border-color:#3a3a3a}
+.campo input:focus,.campo textarea:focus{
+  border-color:var(--oro);
+  box-shadow:0 0 0 3px rgba(201,168,76,.1);
+}
+.campo textarea{height:100px;resize:vertical;line-height:1.5}
 
-    /* ── Campos del formulario ──────────────────────────────── */
-    .campo {
-      position: relative;
-      margin-bottom: 22px;
-    }
+/* ── Botones de selección (chips) ──────────────────────────── */
+.seccion-label{
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.9px;
+  text-transform:uppercase;
+  color:var(--gris);
+  margin-bottom:10px;
+  display:block;
+}
+.chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:22px;
+}
+.chip{
+  padding:9px 16px;
+  border-radius:8px;
+  border:1px solid var(--borde);
+  background:var(--sup2);
+  color:var(--gris);
+  font-size:13px;
+  font-weight:600;
+  cursor:pointer;
+  transition:all .2s;
+  user-select:none;
+  -webkit-user-select:none;
+}
+.chip:hover{border-color:var(--gris2);color:var(--texto)}
+.chip.sel{
+  border-color:var(--oro);
+  background:rgba(201,168,76,.12);
+  color:var(--oro);
+  box-shadow:0 0 10px rgba(201,168,76,.15);
+}
 
-    .campo label {
-      display: block;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      color: var(--gris);
-      margin-bottom: 8px;
-      transition: color 0.2s;
-    }
+/* Chips de tipo de propiedad con ícono */
+.chip-prop{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:5px;
+  padding:12px 14px;
+  min-width:84px;
+  border-radius:10px;
+}
+.chip-prop .icono{font-size:22px}
+.chip-prop .etiq{font-size:11px;font-weight:700}
 
-    /* Cuando el campo tiene foco, la etiqueta se vuelve dorada */
-    .campo:focus-within label {
-      color: var(--oro);
-    }
+/* ── Condicional crédito ───────────────────────────────────── */
+#bloque-credito{
+  display:none;
+  background:rgba(201,168,76,.04);
+  border:1px solid rgba(201,168,76,.15);
+  border-radius:10px;
+  padding:16px;
+  margin-bottom:22px;
+  animation:fadeIn .3s ease both;
+}
 
-    .campo input,
-    .campo textarea {
-      width: 100%;
-      background: #111;
-      border: 1px solid var(--borde);
-      border-radius: 8px;
-      padding: 13px 16px;
-      font-size: 15px;
-      color: var(--texto);
-      outline: none;
-      transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
-      -webkit-appearance: none;
-    }
+/* ── Slider de presupuesto ─────────────────────────────────── */
+.slider-wrap{margin-bottom:22px}
+.slider-val{
+  display:flex;
+  justify-content:space-between;
+  font-size:13px;
+  color:var(--gris);
+  margin-bottom:8px;
+}
+.slider-val strong{color:var(--oro);font-size:15px}
+input[type=range]{
+  -webkit-appearance:none;
+  width:100%;
+  height:4px;
+  border-radius:4px;
+  background:var(--borde);
+  outline:none;
+  cursor:pointer;
+}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  background:var(--oro);
+  box-shadow:0 0 8px rgba(201,168,76,.5);
+  transition:transform .15s;
+}
+input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15)}
+input[type=range]::-moz-range-thumb{
+  width:22px;height:22px;
+  border-radius:50%;
+  background:var(--oro);
+  border:none;
+}
 
-    .campo input::placeholder,
-    .campo textarea::placeholder {
-      color: #444;
-    }
+/* ── Navegación ────────────────────────────────────────────── */
+.nav-btns{
+  display:flex;
+  gap:12px;
+  margin-top:32px;
+}
+.btn-prev{
+  padding:13px 24px;
+  border-radius:8px;
+  border:1px solid var(--borde);
+  background:transparent;
+  color:var(--gris);
+  font-size:14px;
+  font-weight:600;
+  cursor:pointer;
+  transition:all .2s;
+}
+.btn-prev:hover{border-color:var(--gris2);color:var(--texto)}
+.btn-next,.btn-enviar{
+  flex:1;
+  padding:14px;
+  border-radius:8px;
+  border:none;
+  background:linear-gradient(135deg,var(--oro),var(--oro2));
+  color:#0a0a0a;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+  transition:transform .2s,box-shadow .2s,opacity .2s;
+  letter-spacing:.3px;
+}
+.btn-next:hover,.btn-enviar:hover:not(:disabled){
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(201,168,76,.3);
+}
+.btn-enviar:disabled{opacity:.65;cursor:not-allowed}
+.spinner{
+  display:inline-block;
+  width:15px;height:15px;
+  border:2px solid rgba(0,0,0,.3);
+  border-top-color:#000;
+  border-radius:50%;
+  animation:giro .65s linear infinite;
+  vertical-align:middle;
+  margin-right:7px;
+}
+@keyframes giro{to{transform:rotate(360deg)}}
 
-    /* Hover: borde levemente visible */
-    .campo input:hover,
-    .campo textarea:hover {
-      border-color: #444;
-    }
+/* ── Pantalla de éxito ─────────────────────────────────────── */
+#pantalla-exito{
+  display:none;
+  text-align:center;
+  padding:20px 0;
+  animation:subir .5s ease both;
+}
+.check-exito{
+  width:70px;height:70px;
+  border-radius:50%;
+  background:rgba(201,168,76,.1);
+  border:2px solid var(--oro);
+  display:flex;align-items:center;justify-content:center;
+  font-size:30px;
+  margin:0 auto 24px;
+  animation:pulse 1s ease;
+}
+@keyframes pulse{0%{transform:scale(.6);opacity:0}70%{transform:scale(1.1)}100%{transform:scale(1);opacity:1}}
+#pantalla-exito h2{font-size:22px;color:#fff;margin-bottom:10px}
+#pantalla-exito p{font-size:14px;color:var(--gris);line-height:1.6;max-width:380px;margin:0 auto 24px}
+.btn-nuevo{
+  padding:12px 28px;
+  border-radius:8px;
+  border:1px solid var(--oro);
+  background:transparent;
+  color:var(--oro);
+  font-size:14px;font-weight:700;
+  cursor:pointer;
+  transition:all .2s;
+}
+.btn-nuevo:hover{background:rgba(201,168,76,.1)}
 
-    /* Foco: borde dorado + resplandor suave */
-    .campo input:focus,
-    .campo textarea:focus {
-      border-color: var(--oro);
-      box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.12);
-      background: #151515;
-    }
+/* ── Aviso error ───────────────────────────────────────────── */
+#aviso-error{
+  display:none;
+  margin-top:14px;
+  padding:12px 16px;
+  border-radius:8px;
+  background:rgba(220,53,69,.1);
+  border:1px solid rgba(220,53,69,.3);
+  color:#e57373;
+  font-size:13px;
+  text-align:center;
+  animation:fadeIn .3s ease both;
+}
 
-    .campo textarea {
-      height: 120px;
-      resize: vertical;
-      line-height: 1.5;
-    }
+/* ── Footer ────────────────────────────────────────────────── */
+footer{
+  margin-top:28px;
+  font-size:11px;
+  color:#2e2e2e;
+  text-align:center;
+}
 
-    /* ── Fila de dos columnas (email + teléfono) ────────────── */
-    .fila-doble {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    /* ── Botón de envío ─────────────────────────────────────── */
-    .btn-enviar {
-      width: 100%;
-      padding: 15px;
-      margin-top: 8px;
-      background: linear-gradient(135deg, var(--oro), var(--oro-claro));
-      color: #0d0d0d;
-      font-size: 15px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn-enviar:hover:not(:disabled) {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(201, 168, 76, 0.3);
-    }
-
-    .btn-enviar:active:not(:disabled) {
-      transform: translateY(0);
-    }
-
-    .btn-enviar:disabled {
-      opacity: 0.7;
-      cursor: not-allowed;
-    }
-
-    /* Spinner dentro del botón */
-    .spinner {
-      display: inline-block;
-      width: 16px;
-      height: 16px;
-      border: 2px solid rgba(0,0,0,0.3);
-      border-top-color: #000;
-      border-radius: 50%;
-      animation: girar 0.7s linear infinite;
-      vertical-align: middle;
-      margin-right: 8px;
-    }
-
-    @keyframes girar {
-      to { transform: rotate(360deg); }
-    }
-
-    /* ── Mensaje de éxito ───────────────────────────────────── */
-    .aviso {
-      display: none;
-      margin-top: 20px;
-      padding: 14px 18px;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 600;
-      text-align: center;
-      animation: aparecer 0.3s ease both;
-    }
-
-    .aviso.exito {
-      background: rgba(40, 167, 90, 0.12);
-      border: 1px solid rgba(40, 167, 90, 0.35);
-      color: #4caf76;
-    }
-
-    .aviso.error {
-      background: rgba(220, 53, 69, 0.12);
-      border: 1px solid rgba(220, 53, 69, 0.35);
-      color: #e57373;
-    }
-
-    /* ── Pie ────────────────────────────────────────────────── */
-    footer {
-      margin-top: 28px;
-      font-size: 12px;
-      color: #3a3a3a;
-      text-align: center;
-    }
-
-    /* ── Responsive: en pantallas muy chicas, una columna ───── */
-    @media (max-width: 480px) {
-      .card { padding: 36px 24px; }
-      .fila-doble { grid-template-columns: 1fr; gap: 0; }
-    }
-  </style>
+/* ── Responsive ────────────────────────────────────────────── */
+@media(max-width:520px){
+  .wizard{padding:28px 18px 24px}
+  .linea-prog{width:32px}
+  .chip-prop{min-width:72px;padding:10px 10px}
+  .logo-leads{max-width:160px}
+  .logo-osiris{max-width:110px}
+}
+</style>
 </head>
 <body>
 
-  <div class="card">
-    <div class="encabezado">
-      <div class="linea-dorada"></div>
-      <h1>Hablemos</h1>
-      <p>Completá el formulario y nos ponemos en contacto a la brevedad.</p>
+<!-- ── Header ───────────────────────────────────────────────── -->
+<header>
+  <img src="logo_leads.png" alt="LEAD'S Inmobiliaria" class="logo-leads"
+       onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block'"/>
+  <div id="logo-fallback" style="display:none;font-size:22px;font-weight:900;letter-spacing:3px;color:var(--oro);margin-bottom:16px;">LEAD'S INMOBILIARIA</div>
+  <div class="asesor">
+    <img src="logo_osiris.png" alt="Osiris Chustek" class="logo-osiris"
+         onerror="this.style.display='none'; document.getElementById('osiris-fallback').style.display='inline'"/>
+    <span id="osiris-fallback" style="display:none" class="asesor-texto">Osiris Chustek &mdash; Asesor Inmobiliario</span>
+  </div>
+  <div class="divisor"></div>
+</header>
+
+<!-- ── Wizard ───────────────────────────────────────────────── -->
+<div class="wizard">
+
+  <!-- Barra de progreso -->
+  <div class="progreso-wrap">
+    <div class="paso-dot activo" id="dot1">
+      <div class="dot"><span>1</span></div>
+      <div class="paso-label">Tus datos</div>
     </div>
-
-    <form id="form">
-
-      <div class="campo">
-        <label for="nombre">Nombre completo</label>
-        <input type="text" id="nombre" name="nombre"
-               placeholder="María González" required />
-      </div>
-
-      <div class="fila-doble">
-        <div class="campo">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email"
-                 placeholder="maria@email.com" required />
-        </div>
-        <div class="campo">
-          <label for="telefono">Teléfono</label>
-          <input type="tel" id="telefono" name="telefono"
-                 placeholder="+54 11 1234-5678" />
-        </div>
-      </div>
-
-      <div class="campo">
-        <label for="empresa">Empresa</label>
-        <input type="text" id="empresa" name="empresa"
-               placeholder="Nombre de tu empresa (opcional)" />
-      </div>
-
-      <div class="campo">
-        <label for="mensaje">Mensaje</label>
-        <textarea id="mensaje" name="mensaje"
-                  placeholder="Contanos en qué podemos ayudarte…" required></textarea>
-      </div>
-
-      <button type="submit" class="btn-enviar" id="btn">
-        Enviar mensaje
-      </button>
-
-      <div id="aviso" class="aviso"></div>
-    </form>
+    <div class="linea-prog" id="linea1"></div>
+    <div class="paso-dot" id="dot2">
+      <div class="dot"><span>2</span></div>
+      <div class="paso-label">Tu búsqueda</div>
+    </div>
+    <div class="linea-prog" id="linea2"></div>
+    <div class="paso-dot" id="dot3">
+      <div class="dot"><span>3</span></div>
+      <div class="paso-label">Detalles</div>
+    </div>
   </div>
 
-  <footer>Todos los datos se tratan con confidencialidad.</footer>
+  <!-- ── PASO 1 ─────────────────────────────────────────────── -->
+  <div class="paso visible" id="paso1">
+    <div class="paso-titulo">Tus datos personales</div>
+    <div class="paso-subtitulo">Solo tardás 2 minutos. Tu info es confidencial.</div>
 
-  <script>
-    // URL del Web App de Google Apps Script que recibe los datos
-    var URL_SHEETS = "https://script.google.com/macros/s/AKfycbyr43PPKhkjXRKlXnjaLMYVQk83Sd55M0M-xWU3msfWIt6iXRnXnRPkHTay1jpYqUCi/exec";
+    <div class="campo">
+      <label for="nombre">Nombre completo</label>
+      <input type="text" id="nombre" placeholder="Ej: María González" />
+    </div>
+    <div class="campo">
+      <label for="telefono">Teléfono / WhatsApp</label>
+      <input type="tel" id="telefono" placeholder="+54 381 000-0000" />
+    </div>
+    <div class="campo">
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="maria@email.com" />
+    </div>
 
-    var form  = document.getElementById("form");
-    var btn   = document.getElementById("btn");
-    var aviso = document.getElementById("aviso");
+    <div class="nav-btns">
+      <button class="btn-next" onclick="irA(2)">Siguiente →</button>
+    </div>
+  </div>
 
-    form.addEventListener("submit", function (e) {
-      e.preventDefault(); // Impedimos que la página se recargue
+  <!-- ── PASO 2 ─────────────────────────────────────────────── -->
+  <div class="paso" id="paso2">
+    <div class="paso-titulo">¿Qué estás buscando?</div>
+    <div class="paso-subtitulo">Seleccioná las opciones que mejor te describen.</div>
 
-      // Mostramos el spinner y desactivamos el botón mientras se envía
-      btn.disabled = true;
-      btn.innerHTML = '<span class="spinner"></span>Enviando…';
-      aviso.style.display = "none";
+    <!-- Tipo de propiedad -->
+    <span class="seccion-label">Tipo de propiedad</span>
+    <div class="chips" id="chips-tipo">
+      <div class="chip chip-prop" data-val="Departamento"><span class="icono">🏢</span><span class="etiq">Departamento</span></div>
+      <div class="chip chip-prop" data-val="Casa"><span class="icono">🏠</span><span class="etiq">Casa</span></div>
+      <div class="chip chip-prop" data-val="Duplex"><span class="icono">🏘️</span><span class="etiq">Duplex</span></div>
+      <div class="chip chip-prop" data-val="PH"><span class="icono">🏙️</span><span class="etiq">PH</span></div>
+      <div class="chip chip-prop" data-val="Local comercial"><span class="icono">🏪</span><span class="etiq">Local</span></div>
+      <div class="chip chip-prop" data-val="Terreno"><span class="icono">🌿</span><span class="etiq">Terreno</span></div>
+    </div>
 
-      fetch(URL_SHEETS, {
-        method: "POST",
-        body: JSON.stringify({
-          nombre:   form.nombre.value,
-          email:    form.email.value,
-          telefono: form.telefono.value,
-          empresa:  form.empresa.value,
-          mensaje:  form.mensaje.value
-        })
-      })
-      .then(function () {
-        // Con "no-cors" siempre llega aquí aunque haya error en el servidor,
-        // así que mostramos éxito si la petición salió sin error de red.
-        mostrarAviso("exito", "¡Mensaje enviado! Nos ponemos en contacto pronto.");
-        form.reset();
-      })
-      .catch(function () {
-        // Solo entra aquí si hay un problema de conexión (sin internet, etc.)
-        mostrarAviso("error", "Hubo un problema de conexión. Intentá de nuevo.");
-      })
-      .finally(function () {
-        btn.disabled = false;
-        btn.innerHTML = "Enviar mensaje";
-      });
+    <!-- Operación -->
+    <span class="seccion-label">Tipo de operación</span>
+    <div class="chips" id="chips-operacion">
+      <div class="chip" data-val="Compra con dinero">💵 Compra con dinero</div>
+      <div class="chip" data-val="Compra con crédito">🏦 Compra con crédito</div>
+    </div>
+
+    <!-- Bloque condicional crédito -->
+    <div id="bloque-credito">
+      <span class="seccion-label" style="margin-bottom:10px">¿Tiene pre-aprobado el crédito?</span>
+      <div class="chips" id="chips-credito">
+        <div class="chip" data-val="Sí">✅ Sí</div>
+        <div class="chip" data-val="No">❌ No</div>
+        <div class="chip" data-val="En trámite">🔄 En trámite</div>
+      </div>
+    </div>
+
+    <!-- Destino -->
+    <span class="seccion-label">Destino de la propiedad</span>
+    <div class="chips" id="chips-destino">
+      <div class="chip" data-val="Vivienda">🏡 Vivienda</div>
+      <div class="chip" data-val="Inversión">📈 Inversión</div>
+    </div>
+
+    <div class="nav-btns">
+      <button class="btn-prev" onclick="irA(1)">← Atrás</button>
+      <button class="btn-next" onclick="irA(3)">Siguiente →</button>
+    </div>
+  </div>
+
+  <!-- ── PASO 3 ─────────────────────────────────────────────── -->
+  <div class="paso" id="paso3">
+    <div class="paso-titulo">Detalles de búsqueda</div>
+    <div class="paso-subtitulo">Ayudanos a encontrarte la propiedad ideal.</div>
+
+    <!-- Ambientes -->
+    <span class="seccion-label">Cantidad de ambientes</span>
+    <div class="chips" id="chips-ambientes">
+      <div class="chip" data-val="1">1</div>
+      <div class="chip" data-val="2">2</div>
+      <div class="chip" data-val="3">3</div>
+      <div class="chip" data-val="4">4</div>
+      <div class="chip" data-val="5+">5+</div>
+    </div>
+
+    <!-- Zona (múltiple) -->
+    <span class="seccion-label">Zona preferida <span style="font-size:10px;color:var(--gris2);text-transform:none;letter-spacing:0">(podés elegir varias)</span></span>
+    <div class="chips" id="chips-zona">
+      <div class="chip" data-val="Centro">Centro</div>
+      <div class="chip" data-val="Norte">Norte</div>
+      <div class="chip" data-val="Sur">Sur</div>
+      <div class="chip" data-val="Este">Este</div>
+      <div class="chip" data-val="Oeste">Oeste</div>
+      <div class="chip" data-val="Yerba Buena">Yerba Buena</div>
+      <div class="chip" data-val="Country / Barrio Privado">Country / B. Privado</div>
+    </div>
+
+    <!-- Presupuesto slider -->
+    <div class="slider-wrap">
+      <span class="seccion-label">Presupuesto máximo</span>
+      <div class="slider-val">
+        <span>USD 50.000</span>
+        <strong id="val-slider">USD 200.000</strong>
+        <span>USD 700.000</span>
+      </div>
+      <input type="range" id="slider-presupuesto" min="50000" max="700000" step="10000" value="200000"/>
+    </div>
+
+    <!-- Cochera -->
+    <span class="seccion-label">¿Necesitás cochera?</span>
+    <div class="chips" id="chips-cochera">
+      <div class="chip" data-val="Sí">🚗 Sí</div>
+      <div class="chip" data-val="No">❌ No</div>
+      <div class="chip" data-val="Indiferente">🤷 Indiferente</div>
+    </div>
+
+    <!-- Mascotas -->
+    <span class="seccion-label">¿Tenés mascotas?</span>
+    <div class="chips" id="chips-mascotas">
+      <div class="chip" data-val="Sí">🐾 Sí</div>
+      <div class="chip" data-val="No">No</div>
+    </div>
+
+    <!-- Mudanza -->
+    <span class="seccion-label">¿Cuándo necesitás mudarte?</span>
+    <div class="chips" id="chips-mudanza">
+      <div class="chip" data-val="Inmediato">⚡ Inmediato</div>
+      <div class="chip" data-val="1 a 3 meses">1 a 3 meses</div>
+      <div class="chip" data-val="3 a 6 meses">3 a 6 meses</div>
+      <div class="chip" data-val="Más de 6 meses">Más de 6 meses</div>
+    </div>
+
+    <!-- Comentarios -->
+    <div class="campo">
+      <label for="comentarios">Comentarios adicionales</label>
+      <textarea id="comentarios" placeholder="Contanos cualquier detalle extra que nos ayude a encontrar la propiedad ideal para vos…"></textarea>
+    </div>
+
+    <div class="nav-btns">
+      <button class="btn-prev" onclick="irA(2)">← Atrás</button>
+      <button class="btn-enviar" id="btn-enviar" onclick="enviar()">Enviar consulta</button>
+    </div>
+    <div id="aviso-error"></div>
+  </div>
+
+  <!-- ── Pantalla de éxito ───────────────────────────────────── -->
+  <div id="pantalla-exito">
+    <div class="check-exito">✓</div>
+    <h2>¡Consulta enviada!</h2>
+    <p>Gracias por contactarte. Osiris va a comunicarse con vos a la brevedad para ayudarte a encontrar la propiedad ideal.</p>
+    <button class="btn-nuevo" onclick="reiniciar()">Enviar otra consulta</button>
+  </div>
+
+</div>
+
+<footer>LEAD'S Inmobiliaria · Todos los datos son confidenciales</footer>
+
+<script>
+var URL_SHEETS = "https://script.google.com/macros/s/AKfycbyr43PPKhkjXRKlXnjaLMYVQk83Sd55M0M-xWU3msfWIt6iXRnXnRPkHTay1jpYqUCi/exec";
+
+// ── Estado de la app ────────────────────────────────────────
+var estado = {
+  tipo_propiedad: "",
+  operacion: "",
+  credito_preaprobado: "",
+  destino: "",
+  ambientes: "",
+  zonas: [],           // múltiple selección
+  presupuesto: 200000,
+  cochera: "",
+  mascotas: "",
+  mudanza: ""
+};
+
+// ── Chips de selección única ────────────────────────────────
+function initChipsSingle(contenedorId, campo) {
+  var chips = document.querySelectorAll("#" + contenedorId + " .chip");
+  chips.forEach(function(chip) {
+    chip.addEventListener("click", function() {
+      chips.forEach(function(c){ c.classList.remove("sel"); });
+      chip.classList.add("sel");
+      estado[campo] = chip.dataset.val;
+
+      // Mostrar bloque de crédito si corresponde
+      if (campo === "operacion") {
+        document.getElementById("bloque-credito").style.display =
+          chip.dataset.val === "Compra con crédito" ? "block" : "none";
+        if (chip.dataset.val !== "Compra con crédito") {
+          estado.credito_preaprobado = "";
+          document.querySelectorAll("#chips-credito .chip").forEach(function(c){ c.classList.remove("sel"); });
+        }
+      }
     });
+  });
+}
 
-    function mostrarAviso(tipo, texto) {
-      aviso.className = "aviso " + tipo;
-      aviso.textContent = texto;
-      aviso.style.display = "block";
+// ── Chips de selección múltiple (zonas) ─────────────────────
+function initChipsMulti(contenedorId, campo) {
+  var chips = document.querySelectorAll("#" + contenedorId + " .chip");
+  chips.forEach(function(chip) {
+    chip.addEventListener("click", function() {
+      var val = chip.dataset.val;
+      var idx = estado[campo].indexOf(val);
+      if (idx === -1) {
+        estado[campo].push(val);
+        chip.classList.add("sel");
+      } else {
+        estado[campo].splice(idx, 1);
+        chip.classList.remove("sel");
+      }
+    });
+  });
+}
 
-      // Ocultamos el aviso después de 6 segundos
-      setTimeout(function () {
-        aviso.style.display = "none";
-      }, 6000);
-    }
-  </script>
+// ── Slider ──────────────────────────────────────────────────
+var slider = document.getElementById("slider-presupuesto");
+var valSlider = document.getElementById("val-slider");
 
+slider.addEventListener("input", function() {
+  estado.presupuesto = parseInt(slider.value);
+  valSlider.textContent = "USD " + estado.presupuesto.toLocaleString("es-AR");
+  // Actualiza el color del track
+  var pct = ((slider.value - slider.min) / (slider.max - slider.min)) * 100;
+  slider.style.background = "linear-gradient(to right, #c9a84c " + pct + "%, #2c2c2c " + pct + "%)";
+});
+// Color inicial
+slider.dispatchEvent(new Event("input"));
+
+// ── Navegación entre pasos ───────────────────────────────────
+function irA(numero) {
+  if (numero === 2 && !validarPaso1()) return;
+  if (numero === 3 && !validarPaso2()) return;
+
+  // Ocultar todos los pasos
+  [1,2,3].forEach(function(n){
+    document.getElementById("paso" + n).classList.remove("visible");
+  });
+  document.getElementById("paso" + numero).classList.add("visible");
+
+  // Actualizar barra de progreso
+  [1,2,3].forEach(function(n){
+    var dot = document.getElementById("dot" + n);
+    dot.classList.remove("activo","completo");
+    if (n < numero) dot.classList.add("completo");
+    if (n === numero) dot.classList.add("activo");
+  });
+
+  if (numero >= 2) document.getElementById("linea1").classList.add("llena");
+  else document.getElementById("linea1").classList.remove("llena");
+  if (numero >= 3) document.getElementById("linea2").classList.add("llena");
+  else document.getElementById("linea2").classList.remove("llena");
+
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+// ── Validaciones ─────────────────────────────────────────────
+function validarPaso1() {
+  var nombre = document.getElementById("nombre").value.trim();
+  var tel    = document.getElementById("telefono").value.trim();
+  var email  = document.getElementById("email").value.trim();
+  if (!nombre) { alerta("Por favor ingresá tu nombre."); return false; }
+  if (!tel)    { alerta("Por favor ingresá tu teléfono o WhatsApp."); return false; }
+  if (!email || !email.includes("@")) { alerta("Por favor ingresá un email válido."); return false; }
+  return true;
+}
+
+function validarPaso2() {
+  if (!estado.tipo_propiedad) { alerta("Seleccioná el tipo de propiedad."); return false; }
+  if (!estado.operacion)      { alerta("Seleccioná el tipo de operación."); return false; }
+  if (!estado.destino)        { alerta("Seleccioná el destino de la propiedad."); return false; }
+  return true;
+}
+
+function alerta(msg) {
+  var el = document.getElementById("aviso-error");
+  el.textContent = msg;
+  el.style.display = "block";
+  setTimeout(function(){ el.style.display = "none"; }, 4000);
+}
+
+// ── Envío a Google Sheets ────────────────────────────────────
+function enviar() {
+  var btn = document.getElementById("btn-enviar");
+  var err = document.getElementById("aviso-error");
+
+  var datos = {
+    nombre:              document.getElementById("nombre").value.trim(),
+    telefono:            document.getElementById("telefono").value.trim(),
+    email:               document.getElementById("email").value.trim(),
+    tipo_propiedad:      estado.tipo_propiedad,
+    operacion:           estado.operacion,
+    credito_preaprobado: estado.credito_preaprobado || "N/A",
+    destino:             estado.destino,
+    ambientes:           estado.ambientes || "No especificado",
+    zonas:               estado.zonas.length ? estado.zonas.join(", ") : "No especificado",
+    presupuesto:         "USD " + estado.presupuesto.toLocaleString("es-AR"),
+    cochera:             estado.cochera || "No especificado",
+    mascotas:            estado.mascotas || "No especificado",
+    mudanza:             estado.mudanza || "No especificado",
+    comentarios:         document.getElementById("comentarios").value.trim(),
+    fecha:               new Date().toLocaleString("es-AR")
+  };
+
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span>Enviando…';
+  err.style.display = "none";
+
+  fetch(URL_SHEETS, {
+    method: "POST",
+    body: JSON.stringify(datos)
+  })
+  .then(function() {
+    // Ocultar todos los pasos y mostrar pantalla de éxito
+    [1,2,3].forEach(function(n){ document.getElementById("paso" + n).classList.remove("visible"); });
+    document.querySelector(".progreso-wrap").style.display = "none";
+    document.getElementById("pantalla-exito").style.display = "block";
+  })
+  .catch(function() {
+    alerta("Hubo un problema de conexión. Verificá tu internet e intentá de nuevo.");
+  })
+  .finally(function() {
+    btn.disabled = false;
+    btn.innerHTML = "Enviar consulta";
+  });
+}
+
+// ── Reiniciar formulario ─────────────────────────────────────
+function reiniciar() {
+  document.getElementById("pantalla-exito").style.display = "none";
+  document.querySelector(".progreso-wrap").style.display = "flex";
+  document.getElementById("nombre").value = "";
+  document.getElementById("telefono").value = "";
+  document.getElementById("email").value = "";
+  document.getElementById("comentarios").value = "";
+  document.querySelectorAll(".chip").forEach(function(c){ c.classList.remove("sel"); });
+  document.getElementById("bloque-credito").style.display = "none";
+  slider.value = 200000;
+  slider.dispatchEvent(new Event("input"));
+  estado = { tipo_propiedad:"", operacion:"", credito_preaprobado:"", destino:"",
+             ambientes:"", zonas:[], presupuesto:200000, cochera:"", mascotas:"", mudanza:"" };
+  irA(1);
+}
+
+// ── Inicializar todos los grupos de chips ────────────────────
+initChipsSingle("chips-tipo",      "tipo_propiedad");
+initChipsSingle("chips-operacion", "operacion");
+initChipsSingle("chips-credito",   "credito_preaprobado");
+initChipsSingle("chips-destino",   "destino");
+initChipsSingle("chips-ambientes", "ambientes");
+initChipsMulti ("chips-zona",      "zonas");
+initChipsSingle("chips-cochera",   "cochera");
+initChipsSingle("chips-mascotas",  "mascotas");
+initChipsSingle("chips-mudanza",   "mudanza");
+</script>
 </body>
 </html>
