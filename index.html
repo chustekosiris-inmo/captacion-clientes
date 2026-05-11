@@ -44,24 +44,25 @@ header{
   margin-bottom:36px;
   animation:subir .6s ease both;
 }
-.logo-leads{
-  max-width:200px;
+.logo-osiris{
+  max-width:150px;
   height:auto;
   display:block;
-  margin:0 auto 16px;
-  filter:drop-shadow(0 2px 12px rgba(201,168,76,.25));
+  filter:drop-shadow(0 1px 6px rgba(201,168,76,.2));
 }
 .asesor{
   display:flex;
   align-items:center;
   justify-content:center;
   gap:10px;
+  margin-bottom:14px;
 }
-.logo-osiris{
-  max-width:150px;
+.logo-leads{
+  max-width:240px;
   height:auto;
   display:block;
-  filter:drop-shadow(0 1px 6px rgba(201,168,76,.2));
+  margin:0 auto 16px;
+  filter:drop-shadow(0 2px 12px rgba(201,168,76,.25));
 }
 .asesor-texto{
   font-size:13px;
@@ -414,8 +415,8 @@ footer{
   .wizard{padding:28px 18px 24px}
   .linea-prog{width:32px}
   .chip-prop{min-width:72px;padding:10px 10px}
-  .logo-leads{max-width:160px}
   .logo-osiris{max-width:110px}
+  .logo-leads{max-width:180px}
 }
 </style>
 </head>
@@ -423,14 +424,16 @@ footer{
 
 <!-- ── Header ───────────────────────────────────────────────── -->
 <header>
-  <img src="logo_leads.png" alt="LEAD'S Inmobiliaria" class="logo-leads"
-       onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block'"/>
-  <div id="logo-fallback" style="display:none;font-size:22px;font-weight:900;letter-spacing:3px;color:var(--oro);margin-bottom:16px;">LEAD'S INMOBILIARIA</div>
+  <!-- 1. Osiris Chustek arriba -->
   <div class="asesor">
     <img src="logo_osiris.png" alt="Osiris Chustek" class="logo-osiris"
          onerror="this.style.display='none'; document.getElementById('osiris-fallback').style.display='inline'"/>
     <span id="osiris-fallback" style="display:none" class="asesor-texto">Osiris Chustek &mdash; Asesor Inmobiliario</span>
   </div>
+  <!-- 2. LEAD'S Inmobiliaria abajo, más grande -->
+  <img src="logo_leads.png" alt="LEAD'S Inmobiliaria" class="logo-leads"
+       onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block'"/>
+  <div id="logo-fallback" style="display:none;font-size:22px;font-weight:900;letter-spacing:3px;color:var(--oro);margin-bottom:16px;">LEAD'S INMOBILIARIA</div>
   <div class="divisor"></div>
 </header>
 
